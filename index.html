@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Studio</title>
+    <meta charset="UTF-8">
+    <title>Teja Studio</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+        /* Your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -12,11 +15,35 @@
         header {
             background-color: #333;
             color: #fff;
-            text-align: center;
+            text-align: left;
             padding: 20px;
+            position: relative;
         }
         h1 {
             margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        h1 img {
+            max-height: 40px;
+            margin-right: 10px;
+        }
+        nav {
+            background-color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        ul li {
+            margin: 0;
+        }
+        ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
         }
         main {
             max-width: 800px;
@@ -26,6 +53,8 @@
         .image-container {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-around;
+            display: none;
         }
         .image {
             width: 30%;
@@ -38,64 +67,81 @@
             background-color: #333;
             color: #fff;
         }
-
-        /* Styles for the Weddings section */
-        .album-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .album {
-            width: 30%;
-            margin: 1%;
-        }
-        .album-title {
-            text-align: center;
-            font-weight: bold;
-        }
-        .album-images {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .album-image {
-            width: 30%;
-            margin: 1%;
-            box-shadow: 2px 2px 5px #888888;
-        }
+        /* Add custom styles for albums, live stream, About, and Contact sections */
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Studio</h1>
+        <h1><img src="logo.png" alt="Teja Studio Logo">Teja Studio</h1>
     </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="home">Home</a></li>
+            <li><a href="#" id="weddings">Weddings</a></li>
+            <li><a href="#" id="engagements">Engagements</a></li>
+            <li><a href="#" id="birthdays">Birthdays</a></li>
+            <li><a href="#" id="live">Live</a></li>
+            <li><a href="#" id="about">About</a></li>
+            <li><a href="#" id="contact">Contact</a></li>
+        </ul>
+    </nav>
     <main>
-        <section id="home">
+        <section id="home-section" class="image-container">
             <h2>Home</h2>
-            <div class="image-container">
-                <!-- Add 10-12 sample images here -->
-                <div class="image"><img src="image-source.jpg" alt="Image 1"></div>
-                <!-- Add more images as needed -->
-            </div>
-            <h2>Interesting Fact About My Studio</h2>
-            <p class="interesting-fact">My studio is a place of creativity and inspiration where dreams come to life.</p>
+            <!-- Add 10 images for Home section -->
+            <div class="image"><img src="image-source.jpg" alt="Image 1"></div>
+            <!-- Add more images as needed -->
+            <div class="interesting-fact">Short notes about the Home section.</div>
         </section>
-        <section id="weddings">
+        <section id="weddings-section" class="image-container">
             <h2>Weddings</h2>
-            <div class="album-container">
-                <!-- Album 1 -->
-                <div class="album">
-                    <p class="album-title">Album 1</p>
-                    <div class="album-images">
-                        <!-- Add 10 images for Album 1 -->
-                        <div class="album-image"><img src="image-source.jpg" alt="Image 1"></div>
-                        <!-- Add more images as needed -->
-                    </div>
-                </div>
-                
-                <!-- Add more album divs for the remaining albums -->
-                
-            </div>
+            <!-- Add 5 albums with 10 images each for Weddings section -->
+            <!-- Add more albums and images as needed -->
+        </section>
+        <section id="engagements-section" class="image-container">
+            <h2>Engagements</h2>
+            <!-- Add 5 albums with 10 images each for Engagements section -->
+            <!-- Add more albums and images as needed -->
+        </section>
+        <section id="birthdays-section" class="image-container">
+            <h2>Birthdays</h2>
+            <!-- Add 5 albums with 10 images each for Birthdays section -->
+            <!-- Add more albums and images as needed -->
+        </section>
+        <section id="live-section">
+            <h2>Live</h2>
+            <!-- Add your YouTube live stream link here -->
+        </section>
+        <section id="about-section">
+            <h2>About Teja Studio</h2>
+            <!-- Add information about Teja Studio here -->
+        </section>
+        <section id="contact-section">
+            <h2>Contact</h2>
+            <!-- Add contact details here -->
         </section>
     </main>
+    <script>
+        // JavaScript for showing and hiding sections
+        const sections = ["home-section", "weddings-section", "engagements-section", "birthdays-section", "live-section", "about-section", "contact-section"];
+        const navLinks = ["home", "weddings", "engagements", "birthdays", "live", "about", "contact"];
+
+        function showSection(sectionId) {
+            sections.forEach((section) => {
+                document.getElementById(section).style.display = "none";
+            });
+
+            document.getElementById(sectionId).style.display = "flex";
+        }
+
+        navLinks.forEach((link) => {
+            document.getElementById(link).addEventListener("click", function () {
+                showSection(link + "-section");
+            });
+        });
+
+        // Show the Home section by default
+        showSection("home-section");
+    </script>
 </body>
 </html>
